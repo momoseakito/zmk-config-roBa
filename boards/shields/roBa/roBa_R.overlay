@@ -10,15 +10,15 @@
     >;
 };
 
-/ {
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
+// {
+//    trackball_listener: trackball_listener {
+//        compatible = "zmk,input-listener";
+//        device = <&trackball>;
 
         // input-processors の行を削除するか、以下のように標準のXY移動プロセッサを指定します
-        input-processors = <&zip_xy_scaler 1 1>; 
-    };
-};
+//        input-processors = <&zip_xy_scaler 1 1>; 
+//    };
+//};
 
 &default_transform {
     col-offset = <6>;
@@ -34,13 +34,13 @@
             ;
 };
 
-/ {
-    trackball_listener {
-        status = "okay";
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-    };
-};
+// {
+//    trackball_listener {
+//        status = "okay";
+//        compatible = "zmk,input-listener";
+//        device = <&trackball>;
+//    };
+//};
 
 &pinctrl {
     spi0_default: spi0_default {
