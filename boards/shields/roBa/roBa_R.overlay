@@ -62,11 +62,6 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        
-        /* 自動切り替えは一旦コメントアウトのままでOKです。
-           これで動くようになった後、特定のレイヤー（マウスボタンがあるレイヤーなど）に
-           自動で飛ばしたい場合は、ここのコメントアウトを解除して番号を指定します。
-        */
-        // automouse-layer = <4>;
+        automouse-layer = <4>;
     };
 };
