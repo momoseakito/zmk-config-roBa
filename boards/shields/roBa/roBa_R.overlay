@@ -15,7 +15,8 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        input-processors = <&zip_temp_layer 5 10000>;
+        // input-processors の行を削除するか、以下のように標準のXY移動プロセッサを指定します
+        input-processors = <&zip_xy_scaler 1 1>; 
     };
 };
 
