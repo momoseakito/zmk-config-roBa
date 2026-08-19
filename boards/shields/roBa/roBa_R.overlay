@@ -14,7 +14,7 @@
 };
 
 &zip_temp_layer {
-    excluded-positions = 
+    excluded-positions = <
         18  // J = MB1
         19  // K = MB3
         20  // L = MB2
