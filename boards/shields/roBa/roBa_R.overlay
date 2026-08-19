@@ -7,10 +7,20 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         status = "okay";
-
         /* トラックボールの生の動きを、通常のマウス移動（XY）として処理させる記述 */
-        input-processors = <&zip_xy_scaler 1 1>; 
+        /* AML: トラボ操作後300msだけレイヤー4を有効化。excluded-positions以外のキーを押すと即解除 */
+        input-processors = <&zip_xy_scaler 1 1>, <&zip_temp_layer 4 300>;
     };
+};
+
+&zip_temp_layer {
+    excluded-positions = 
+        18  // J = MB1
+        19  // K = MB3
+        20  // L = MB2
+        30  // M = MB4
+        31  // , = MB5
+    >;
 };
 
 &default_transform {
@@ -35,7 +45,6 @@
                 <NRF_PSEL(SPIM_MISO, 0, 4)>;
         };
     };
-
     spi0_sleep: spi0_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
@@ -55,13 +64,11 @@
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-
     trackball: trackball@0 {
         status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        automouse-layer = <4>;
     };
 };
