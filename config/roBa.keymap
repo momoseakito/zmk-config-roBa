@@ -57,7 +57,7 @@
         };
 
         henkan {
-            bindings = <&kp LANG_ZENKAKUHANKAKU>;
+            bindings = <&kp CAPSLOCK>;
             key-positions = <0 1>;
         };
     };
